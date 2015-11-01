@@ -1,0 +1,62 @@
+@(message:Html)
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>EC2 Instance Query Info</h1>
+<p>Enter Your KeyID(not ssh key pem content)</p>
+< method="post">
+    <table>
+        <tr>
+            <td>
+                KeyName:
+            </td>
+            <td>
+                <input type="text" name="keyName"><br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                SystemPassword:
+            </td>
+            <td>
+                <input type="text" name="systemPassword"><br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="submit">
+            </td>
+        </tr>
+    </table>
+
+</form>
+<table border="True">
+    <tr>
+        <td>
+            InstanceID
+        </td>
+        <td>
+            Name
+        </td>
+        <td>
+            Status
+        </td>
+        <td>
+            PublicIp
+        </td>
+        <td>
+            PrivateIp
+        </td>
+    </tr>
+    @message
+</table>
+
+
+
+</body>
+</html>

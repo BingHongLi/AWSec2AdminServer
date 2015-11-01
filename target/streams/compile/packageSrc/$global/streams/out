@@ -1,0 +1,11 @@
+[0m[[0minfo[0m] [0mPackaging /home/cirrusdi/testPlay/target/scala-2.11/my-first-app_2.11-1.0.0-SNAPSHOT-sources.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	application.conf[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/conf/application.conf[0m
+[0m[[0mdebug[0m] [0m	routes[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/conf/routes[0m
+[0m[[0mdebug[0m] [0m	controllers/Application.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/app/controllers/Application.scala[0m
+[0m[[0mdebug[0m] [0m	controllers/Query.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/app/controllers/Query.scala[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m
