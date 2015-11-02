@@ -68,7 +68,7 @@ Seq[Any](format.raw/*1.32*/("""
 object main extends main_Scope0.main
               /*
                   -- GENERATED --
-                  DATE: Sun Nov 01 10:53:31 CST 2015
+                  DATE: Mon Nov 02 20:59:25 CST 2015
                   SOURCE: /home/cirrusdi/testPlay/app/views/main.scala.html
                   HASH: 12ece10381b647ce6d74469c8cca84b33351bb7e
                   MATRIX: 530->1|655->31|683->33|751->75|776->80|834->111|862->112|898->121|947->143|975->144|1007->149|1235->350|1261->355|1375->442|1403->449|1435->454

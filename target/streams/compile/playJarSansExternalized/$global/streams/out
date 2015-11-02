@@ -14,8 +14,6 @@
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/views/html/queryEC2Info_Scope0$queryEC2Info.class[0m
 [0m[[0mdebug[0m] [0m	controllers/Query$$anonfun$test$1$$anon$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$$anonfun$test$1$$anon$1.class[0m
-[0m[[0mdebug[0m] [0m	controllers/Query$$anonfun$test$1$$anonfun$apply$1.class[0m
-[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$$anonfun$test$1$$anonfun$apply$1.class[0m
 [0m[[0mdebug[0m] [0m	router/RoutesPrefix$$anonfun$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/router/RoutesPrefix$$anonfun$1.class[0m
 [0m[[0mdebug[0m] [0m	router/Routes$$anonfun$documentation$1.class[0m
@@ -32,6 +30,10 @@
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/router/Routes.class[0m
 [0m[[0mdebug[0m] [0m	controllers/Query$$anonfun$getWPqueryEC2Info$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$$anonfun$getWPqueryEC2Info$1.class[0m
+[0m[[0mdebug[0m] [0m	controllers/Query$$anonfun$2.class[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$$anonfun$2.class[0m
+[0m[[0mdebug[0m] [0m	controllers/Query$User.class[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$User.class[0m
 [0m[[0mdebug[0m] [0m	controllers/routes.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/routes.class[0m
 [0m[[0mdebug[0m] [0m	router/RoutesPrefix.class[0m
@@ -60,6 +62,10 @@
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$$anonfun$test$1.class[0m
 [0m[[0mdebug[0m] [0m	controllers/Query$$anonfun$postReturnEC2Info$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$$anonfun$postReturnEC2Info$1.class[0m
+[0m[[0mdebug[0m] [0m	controllers/Query$$anonfun$postReturnEC2Info$1$$anonfun$apply$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$$anonfun$postReturnEC2Info$1$$anonfun$apply$1.class[0m
+[0m[[0mdebug[0m] [0m	controllers/Query$User$.class[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$User$.class[0m
 [0m[[0mdebug[0m] [0m	controllers/javascript/ReverseQuery.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/javascript/ReverseQuery.class[0m
 [0m[[0mdebug[0m] [0m	views/html/queryEC2Info_Scope0$queryEC2Info$$anonfun$f$1.class[0m
@@ -116,10 +122,10 @@
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/router/Routes$$anonfun$router$Routes$$controllers_Application_getIp0_invoker$1.class[0m
 [0m[[0mdebug[0m] [0m	views/html/index_Scope0$index$$anonfun$f$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/views/html/index_Scope0$index$$anonfun$f$1.class[0m
+[0m[[0mdebug[0m] [0m	controllers/Query$$anonfun$test$1$$anonfun$apply$2.class[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$$anonfun$test$1$$anonfun$apply$2.class[0m
 [0m[[0mdebug[0m] [0m	controllers/javascript/ReverseApplication.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/javascript/ReverseApplication.class[0m
-[0m[[0mdebug[0m] [0m	controllers/Query$$anonfun$postReturnEC2Info$1$$anonfun$apply$2.class[0m
-[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$$anonfun$postReturnEC2Info$1$$anonfun$apply$2.class[0m
 [0m[[0mdebug[0m] [0m	controllers/javascript[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/javascript[0m
 [0m[[0mdebug[0m] [0m	router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$1.class[0m
@@ -128,6 +134,8 @@
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/views/html/index_Scope0$index.class[0m
 [0m[[0mdebug[0m] [0m	router/Routes$$anonfun$router$Routes$$controllers_Query_postReturnEC2Info3_invoker$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/router/Routes$$anonfun$router$Routes$$controllers_Query_postReturnEC2Info3_invoker$1.class[0m
+[0m[[0mdebug[0m] [0m	controllers/Query$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/controllers/Query$$anonfun$1.class[0m
 [0m[[0mdebug[0m] [0m	router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.class[0m
 [0m[[0mdebug[0m] [0m	router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$4.class[0m

@@ -33,7 +33,7 @@ Seq[Any](format.raw/*1.16*/("""
 
 <h1>EC2 Instance Query Info</h1>
 <p>Enter Your KeyID(not ssh key pem content)</p>
-< method="post">
+<form method="post">
     <table>
         <tr>
             <td>
@@ -103,10 +103,10 @@ Seq[Any](format.raw/*1.16*/("""
 object queryEC2Info extends queryEC2Info_Scope0.queryEC2Info
               /*
                   -- GENERATED --
-                  DATE: Sun Nov 01 10:53:31 CST 2015
+                  DATE: Mon Nov 02 20:59:25 CST 2015
                   SOURCE: /home/cirrusdi/testPlay/app/views/queryEC2Info.scala.html
-                  HASH: 7ccefbcb466db2df72fa808a5919bcbb9a2cb1d3
-                  MATRIX: 539->1|648->15|675->16|1695->1010|1723->1017|1751->1018
+                  HASH: 2a76946690502de9c9d5b260b47ab7f597459c0e
+                  MATRIX: 539->1|648->15|675->16|1699->1014|1727->1021|1755->1022
                   LINES: 20->1|25->1|26->2|80->56|80->56|81->57
                   -- GENERATED --
               */

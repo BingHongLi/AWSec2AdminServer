@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cirrusdi/testPlay/conf/routes
-// @DATE:Sun Nov 01 10:53:30 CST 2015
+// @DATE:Mon Nov 02 20:59:24 CST 2015
 
 package controllers;
 

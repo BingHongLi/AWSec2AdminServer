@@ -4,7 +4,7 @@
 		module="testplay-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20151101170847"
+		publication="20151102205913"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>
