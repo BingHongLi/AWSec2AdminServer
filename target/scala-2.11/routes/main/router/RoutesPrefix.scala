@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/cirrusdi/testPlay/conf/routes
-// @DATE:Mon Nov 02 20:59:24 CST 2015
+// @SOURCE:/home/cirrusdi/AwsEc2AdminServer/conf/routes
+// @DATE:Sat Nov 21 01:03:12 CST 2015
 
 
 package router {

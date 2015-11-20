@@ -19,5 +19,13 @@ GET     /queryEC2Info               controllers.Query.getWPqueryEC2Info()
 POST    /queryEC2Info               controllers.Query.postReturnEC2Info()
 
 # 測試功能用
-GET     /test                       controllers.Query.test()
-POST    /test2                      controllers.Query.test2()
+#GET     /test                       controllers.Query.test()
+#POST    /test2                      controllers.Query.test2()
+
+
+# AWS EC2 EBS 備份
+GET     /backupEBS&describe=$describe<(\w+)>&snapshotTag=$snapshotTag<(\w+)>          controllers.Application.backupInstanceEBS(describe:String,snapshotTag:String)
+
+# 動態切割Query String, Dyamic part
+# https://www.playframework.com/documentation/2.4.x/ScalaRouting
+GET     /tdd&id=$id<(\w+)>&value=$value<(\w+)>            controllers.Test.test(id:String,value:String)

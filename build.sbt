@@ -9,8 +9,8 @@ scalaVersion := "2.11.7"
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 libraryDependencies ++= Seq(
-  "com.amazonaws" % "aws-java-sdk-ec2" % "1.10.16",
-  "com.amazonaws" % "aws-java-sdk-iam" % "1.10.16"
+  "com.amazonaws" % "aws-java-sdk-ec2" % "1.10.33",
+  "com.amazonaws" % "aws-java-sdk-iam" % "1.10.33"
 )
 
 

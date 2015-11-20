@@ -17,12 +17,12 @@ import play.api.data.Forms._
 class Query extends Controller {
 
   def getWPqueryEC2Info() = Action{
-//  ¦¹¨ç¼Æ¥Î¨Ó¦^¶ÇqueryEC2Infoºô­¶¡A¨Ï¥ÎªÌ©|¥¼¿é¤Jªí³æ®Éªº­¶­±§e²{
+    //  æ­¤å‡½æ•¸ç”¨ä¾†å›å‚³queryEC2Infoç¶²é ï¼Œä½¿ç”¨è€…å°šæœªè¼¸å…¥è¡¨å–®æ™‚çš„é é¢å‘ˆç¾
     Ok(views.html.queryEC2Info(play.twirl.api.Html("test")))
   }
 
-// «Ø¥ßªí³æ¡A©Ò»İ¨Ï¥Îªº¼Ë¨ÒÃş¡A¨Ã¨Ï¥Îplay®M¥ó¬M®g¡A§iª¾¬O¤°»ò©Ê½èªºªí³æ
-// ¥Î¦bqueryEC2InfoªºpostReturnEC2Info¤èªk
+  // å»ºç«‹è¡¨å–®ï¼Œæ‰€éœ€ä½¿ç”¨çš„æ¨£ä¾‹é¡ï¼Œä¸¦ä½¿ç”¨playå¥—ä»¶æ˜ å°„ï¼Œå‘ŠçŸ¥æ˜¯ä»€éº¼æ€§è³ªçš„è¡¨å–®
+  // ç”¨åœ¨queryEC2Infoçš„postReturnEC2Infoæ–¹æ³•
   case class User(keyName:String,systemPassword:String)
   val userForm = play.api.data.Form(
     mapping(
@@ -33,16 +33,16 @@ class Query extends Controller {
 
 
   def postReturnEC2Info() = Action{
-// ¦¹¨ç¼Æ¡A¥Î¨Ó¦^¶ÇqueryEC2Infoºô­¶¡A¨Ï¥ÎªÌ¿é¤Jªí³æ«áªº­¶­±§e²{
-//    Scala symbol
-//    http://blog.csdn.net/bobozhengsir/article/details/13023023
+    // æ­¤å‡½æ•¸ï¼Œç”¨ä¾†å›å‚³queryEC2Infoç¶²é ï¼Œä½¿ç”¨è€…è¼¸å…¥è¡¨å–®å¾Œçš„é é¢å‘ˆç¾
+    //    Scala symbol
+    //    http://blog.csdn.net/bobozhengsir/article/details/13023023
 
-    // ¨ú±orequestªº¤º®e¡A¨Ã¨Ï¥ÎuserForm­åªR¤Î¨ú­È
+    // å–å¾—requestçš„å…§å®¹ï¼Œä¸¦ä½¿ç”¨userFormå‰–æåŠå–å€¼
     implicit request => val test = userForm.bindFromRequest().get
       // http://stackoverflow.com/questions/7315327/how-to-check-ec2instance-is-running-or-stop-in-aws-using-java
       //  i-f7e74852
 
-//    DescribeInstancesRequestª«¥ó¥Î¨Ó©ñ¤J´y­z¬d¸ßlist
+      //    DescribeInstancesRequestç‰©ä»¶ç”¨ä¾†æ”¾å…¥æè¿°æŸ¥è©¢list
       val descrInstanceRequest = new DescribeInstancesRequest()
       //    val javaList = new util.ArrayList[String](5)
       //    javaList.add("i-f7e74852")
@@ -52,28 +52,28 @@ class Query extends Controller {
       //    Introduce HowToUse Filter
       //    http://docs.aws.amazon.com/storagegateway/latest/userguide/FindingSnapshotsUsingJava.html
 
-//    ³Ğ«Øaws filter¡AµM«á©ñ¤JdescrInstanceRequestª«¥óªº­È¤º
+      //    å‰µå»ºaws filterï¼Œç„¶å¾Œæ”¾å…¥descrInstanceRequestç‰©ä»¶çš„å€¼å…§
       import com.amazonaws.services.ec2.model.Filter
       val ec2Filter = new Filter()
       //    ec2Filter.withName("instance-id").withValues("")
       ec2Filter.withName("key-name").withValues(test.keyName)
       descrInstanceRequest.withFilters(ec2Filter)
 
-//    ³Ğ«Ø¤@­ÓRoleªºcredential
+      //    å‰µå»ºä¸€å€‹Roleçš„credential
       val cred =new com.amazonaws.auth.InstanceProfileCredentialsProvider
 
 
 
       //    descrInstanceRequest.setFilters()
-//    ³Ğ«ØEc2 client¡A¥Î¨Ó¨Ï¥ÎEC2«ü¥O
+      //    å‰µå»ºEc2 clientï¼Œç”¨ä¾†ä½¿ç”¨EC2æŒ‡ä»¤
       val ec2ClientTest = new AmazonEC2Client(cred)
-//    §iª¾¬O­n¥Î¦b­ş¤@­ÓRegion
+      //    å‘ŠçŸ¥æ˜¯è¦ç”¨åœ¨å“ªä¸€å€‹Region
       ec2ClientTest.setEndpoint("ec2.ap-northeast-1.amazonaws.com")
 
-//    ¥Í¦¨¬d¸ßµ²ªG
+      //    ç”ŸæˆæŸ¥è©¢çµæœ
       val describeInsResult = ec2ClientTest.describeInstances(descrInstanceRequest)
 
-//    ¨ú±oReservations¤ºªºInstance²M³æ¡A­Y¤½¥q¦³¶R«O¯dInstance¡A«h³oÃä»İ­n­×§ï
+      //    å–å¾—Reservationså…§çš„Instanceæ¸…å–®ï¼Œè‹¥å…¬å¸æœ‰è²·ä¿ç•™Instanceï¼Œå‰‡é€™é‚Šéœ€è¦ä¿®æ”¹
       val reservationsResult = describeInsResult.getReservations()
 
       //    println(reservationsResult.get(0).getInstances.get(0).getInstanceId())        // instance-id
@@ -85,7 +85,7 @@ class Query extends Controller {
 
       var tableContent = ""
 
-//    ¥Í¦¨table¤º®e
+      //    ç”Ÿæˆtableå…§å®¹
       for(i <- 0 to reservationsResult.size()-1){
         tableContent = tableContent +"<tr>"
         val tempInstance = reservationsResult.get(i).getInstances.get(0)
@@ -124,72 +124,72 @@ class Query extends Controller {
     implicit request => val test = userForm.bindFromRequest().get
 
 
-    val cred = new AWSCredentials {
-      override def getAWSAccessKeyId: String = ""
+      val cred = new AWSCredentials {
+        override def getAWSAccessKeyId: String = ""
 
-      override def getAWSSecretKey: String = ""
-    }
-    // http://stackoverflow.com/questions/7315327/how-to-check-ec2instance-is-running-or-stop-in-aws-using-java
-    //  i-f7e74852
-    val descrInstanceRequest = new DescribeInstancesRequest()
-    //    val javaList = new util.ArrayList[String](5)
-    //    javaList.add("i-f7e74852")
-    //    println(javaList.get(0))
-    //    descrInstanceRequest.setInstanceIds(javaList)
+        override def getAWSSecretKey: String = ""
+      }
+      // http://stackoverflow.com/questions/7315327/how-to-check-ec2instance-is-running-or-stop-in-aws-using-java
+      //  i-f7e74852
+      val descrInstanceRequest = new DescribeInstancesRequest()
+      //    val javaList = new util.ArrayList[String](5)
+      //    javaList.add("i-f7e74852")
+      //    println(javaList.get(0))
+      //    descrInstanceRequest.setInstanceIds(javaList)
 
-    //    Introduce HowToUse Filter
-    //    http://docs.aws.amazon.com/storagegateway/latest/userguide/FindingSnapshotsUsingJava.html
-    import com.amazonaws.services.ec2.model.Filter
-    val ec2Filter = new Filter()
-    //    ec2Filter.withName("instance-id").withValues("")
-    ec2Filter.withName("key-name").withValues(test.keyName)
-    descrInstanceRequest.withFilters(ec2Filter)
-
-
-
-    //    descrInstanceRequest.setFilters()
-    val ec2ClientTest = new AmazonEC2Client(cred)
-    ec2ClientTest.setEndpoint("ec2.ap-northeast-1.amazonaws.com")
-
-    val describeInsResult = ec2ClientTest.describeInstances(descrInstanceRequest)
-
-    val reservationsResult = describeInsResult.getReservations()
-
-    //    println(reservationsResult.get(0).getInstances.get(0).getInstanceId())        // instance-id
-    //    println(reservationsResult.get(0).getInstances.get(0).getPublicIpAddress())   // ip
-    //    println(reservationsResult.get(0).getInstances.get(0).getTags().get(0).getValue) // Manual-NAT-HA-AZ3-Instance
-    //    println(reservationsResult.get(0).getInstances.get(0).getState().getName())
-    //    println(reservationsResult.get(0).getInstances.get(0).getPrivateIpAddress())
-    println(reservationsResult.size())
-
-    var tableContent = ""
-
-    for(i <- 0 to reservationsResult.size()-1){
-      tableContent = tableContent +"<tr>"
-      val tempInstance = reservationsResult.get(i).getInstances.get(0)
-//      print(tempInstance.getInstanceId()+"\t")
-      tableContent = tableContent + "<td>" +tempInstance.getInstanceId()+"</td>"
-//
-//      print(tempInstance.getTags().get(0).getValue()+"\t ")
-      tableContent = tableContent + "<td>" +tempInstance.getTags().get(0).getValue()+"</td>"
-//      print(tempInstance.getState().getName()+"\t")
-      tableContent = tableContent + "<td>" +tempInstance.getState().getName()+"</td>"
-//      print(tempInstance.getPublicIpAddress()+"\t")
-      tableContent = tableContent + "<td>" +tempInstance.getPublicIpAddress()+"</td>"
-//  print(tempInstance.getPrivateIpAddress())
-      tableContent = tableContent + "<td>" +tempInstance.getPrivateIpAddress()+"</td></tr>"
-//      println()
-    }
+      //    Introduce HowToUse Filter
+      //    http://docs.aws.amazon.com/storagegateway/latest/userguide/FindingSnapshotsUsingJava.html
+      import com.amazonaws.services.ec2.model.Filter
+      val ec2Filter = new Filter()
+      //    ec2Filter.withName("instance-id").withValues("")
+      ec2Filter.withName("key-name").withValues(test.keyName)
+      descrInstanceRequest.withFilters(ec2Filter)
 
 
 
+      //    descrInstanceRequest.setFilters()
+      val ec2ClientTest = new AmazonEC2Client(cred)
+      ec2ClientTest.setEndpoint("ec2.ap-northeast-1.amazonaws.com")
+
+      val describeInsResult = ec2ClientTest.describeInstances(descrInstanceRequest)
+
+      val reservationsResult = describeInsResult.getReservations()
+
+      //    println(reservationsResult.get(0).getInstances.get(0).getInstanceId())        // instance-id
+      //    println(reservationsResult.get(0).getInstances.get(0).getPublicIpAddress())   // ip
+      //    println(reservationsResult.get(0).getInstances.get(0).getTags().get(0).getValue) // Manual-NAT-HA-AZ3-Instance
+      //    println(reservationsResult.get(0).getInstances.get(0).getState().getName())
+      //    println(reservationsResult.get(0).getInstances.get(0).getPrivateIpAddress())
+      println(reservationsResult.size())
+
+      var tableContent = ""
+
+      for(i <- 0 to reservationsResult.size()-1){
+        tableContent = tableContent +"<tr>"
+        val tempInstance = reservationsResult.get(i).getInstances.get(0)
+        //      print(tempInstance.getInstanceId()+"\t")
+        tableContent = tableContent + "<td>" +tempInstance.getInstanceId()+"</td>"
+        //
+        //      print(tempInstance.getTags().get(0).getValue()+"\t ")
+        tableContent = tableContent + "<td>" +tempInstance.getTags().get(0).getValue()+"</td>"
+        //      print(tempInstance.getState().getName()+"\t")
+        tableContent = tableContent + "<td>" +tempInstance.getState().getName()+"</td>"
+        //      print(tempInstance.getPublicIpAddress()+"\t")
+        tableContent = tableContent + "<td>" +tempInstance.getPublicIpAddress()+"</td>"
+        //  print(tempInstance.getPrivateIpAddress())
+        tableContent = tableContent + "<td>" +tempInstance.getPrivateIpAddress()+"</td></tr>"
+        //      println()
+      }
 
 
-    //    println(ec2ClientTest.describeInstances())
-    //    println(" ddd")
-    //    println(ec2ClientTest.describeInstances())
 
-    Ok(views.html.queryEC2Info(play.twirl.api.Html(tableContent)))
+
+
+      //    println(ec2ClientTest.describeInstances())
+      //    println(" ddd")
+      //    println(ec2ClientTest.describeInstances())
+
+      Ok(views.html.queryEC2Info(play.twirl.api.Html(tableContent)))
   }
 
   def test2() = Action(BodyParsers.parse.json){

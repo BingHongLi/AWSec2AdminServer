@@ -4,6 +4,9 @@ package controllers
 import play.api._
 import play.api.mvc._
 
+import com.amazonaws.auth.AWSCredentials
+import com.amazonaws.services.ec2.AmazonEC2Client
+import com.amazonaws.services.ec2.model._
 
 
 
@@ -65,6 +68,62 @@ class Application extends Controller {
       }
 
       Ok(s"$instanceID has already restart")
+    }
+  }
+
+  def backupInstanceEBS(describe:String,snapshotTag:String)= Action{
+    request => {
+      val clientIp:String = request.remoteAddress
+//      val cred = new AWSCredentials {
+//        override def getAWSAccessKeyId: String = ""
+//
+//        override def getAWSSecretKey: String = ""
+//      }
+
+      val cred = new com.amazonaws.auth.InstanceProfileCredentialsProvider
+      val ec2ClientTest = new AmazonEC2Client(cred)
+      ec2ClientTest.setEndpoint("ec2.ap-northeast-1.amazonaws.com")
+
+      val describeInstanceFilterList = new DescribeInstancesRequest
+      val instanceIpFilter = new com.amazonaws.services.ec2.model.Filter()
+      instanceIpFilter.withName("private-ip-address").withValues(clientIp)
+      describeInstanceFilterList.withFilters(instanceIpFilter)
+      val instanceInfo = ec2ClientTest.describeInstances(describeInstanceFilterList)
+      val volumeInfo = instanceInfo.getReservations.get(0).getInstances.get(0).getBlockDeviceMappings
+      //    println(volumeInfo.get(1).getEbs.getVolumeId)
+      val volumeInfoIterator = volumeInfo.iterator()
+      while(volumeInfoIterator.hasNext){
+        val eachVolume = volumeInfoIterator.next()
+        val eachVolumeId=eachVolume.getEbs.getVolumeId
+        //  調出指定的volumeID的快照
+        val volumeIDFilter = new com.amazonaws.services.ec2.model.Filter()
+        volumeIDFilter.withName("volume-id").withValues(eachVolumeId)
+        val ddrq = new DescribeSnapshotsRequest().withFilters(volumeIDFilter)
+        val thisVolSnapAllshots = ec2ClientTest.describeSnapshots(ddrq).getSnapshots
+
+        //  將調閱出的結果轉成迭代器，偵測紀錄若超過十天，則刪除該筆快照
+        val snapShotIterator = thisVolSnapAllshots.iterator()
+        while(snapShotIterator.hasNext){
+          val nowTimeMillsSeconds = new java.util.Date().getTime
+
+          val eachSnapshot = snapShotIterator.next()
+          //  十天 86400000 毫秒
+          if(nowTimeMillsSeconds - eachSnapshot.getStartTime.getTime > 10800000 ){
+            //          println(eachSnapshot)
+            val tempDelete = new DeleteSnapshotRequest().withSnapshotId(eachSnapshot.getSnapshotId)
+            ec2ClientTest.deleteSnapshot(tempDelete)
+          }
+          //      println( nowTimeMillsSeconds - snapShotIterator.next().getStartTime.getTime)
+        }
+        //  創建新快照
+        val snapShotRequestInfo = new CreateSnapshotRequest(eachVolumeId,describe)
+
+        val ttd = ec2ClientTest.createSnapshot(snapShotRequestInfo)
+        val tagTest = new CreateTagsRequest().withResources(ttd.getSnapshot.getSnapshotId()).withTags(new Tag("Name",snapshotTag))
+        ec2ClientTest.createTags(tagTest)
+      }
+
+      Ok("success")
     }
   }
 
