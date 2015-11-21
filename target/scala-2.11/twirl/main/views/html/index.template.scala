@@ -51,8 +51,8 @@ Seq[Any](format.raw/*1.19*/("""
 object index extends index_Scope0.index
               /*
                   -- GENERATED --
-                  DATE: Mon Nov 02 20:59:25 CST 2015
-                  SOURCE: /home/cirrusdi/testPlay/app/views/index.scala.html
+                  DATE: Sat Nov 21 09:59:35 CST 2015
+                  SOURCE: /home/cirrusdi/AwsEc2AdminServer/app/views/index.scala.html
                   HASH: 5aa97dabcc7cbc9a99cd16fd6ef401d2fb6bac64
                   MATRIX: 527->1|639->18|667->21|708->54|747->56|779->62|837->94|864->101|912->120
                   LINES: 20->1|25->1|27->3|27->3|27->3|29->5|30->6|30->6|33->9

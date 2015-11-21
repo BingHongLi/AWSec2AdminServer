@@ -1,11 +1,13 @@
-[0m[[0minfo[0m] [0mPackaging /home/cirrusdi/testPlay/target/scala-2.11/my-first-app_2.11-1.0.0-SNAPSHOT-sources.jar ...[0m
+[0m[[0minfo[0m] [0mPackaging /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/awsec2adminserver_2.11-1.0.2-sources.jar ...[0m
 [0m[[0mdebug[0m] [0mInput file mappings:[0m
-[0m[[0mdebug[0m] [0m	application.conf[0m
-[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/conf/application.conf[0m
-[0m[[0mdebug[0m] [0m	routes[0m
-[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/conf/routes[0m
 [0m[[0mdebug[0m] [0m	controllers/Application.scala[0m
-[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/app/controllers/Application.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/app/controllers/Application.scala[0m
 [0m[[0mdebug[0m] [0m	controllers/Query.scala[0m
-[0m[[0mdebug[0m] [0m	  /home/cirrusdi/testPlay/app/controllers/Query.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/app/controllers/Query.scala[0m
+[0m[[0mdebug[0m] [0m	routes[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/conf/routes[0m
+[0m[[0mdebug[0m] [0m	application.conf[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/conf/application.conf[0m
+[0m[[0mdebug[0m] [0m	controllers/Test.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/app/controllers/Test.scala[0m
 [0m[[0minfo[0m] [0mDone packaging.[0m

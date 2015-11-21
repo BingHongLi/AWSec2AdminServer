@@ -103,8 +103,8 @@ Seq[Any](format.raw/*1.16*/("""
 object queryEC2Info extends queryEC2Info_Scope0.queryEC2Info
               /*
                   -- GENERATED --
-                  DATE: Mon Nov 02 20:59:25 CST 2015
-                  SOURCE: /home/cirrusdi/testPlay/app/views/queryEC2Info.scala.html
+                  DATE: Sat Nov 21 09:59:35 CST 2015
+                  SOURCE: /home/cirrusdi/AwsEc2AdminServer/app/views/queryEC2Info.scala.html
                   HASH: 2a76946690502de9c9d5b260b47ab7f597459c0e
                   MATRIX: 539->1|648->15|675->16|1699->1014|1727->1021|1755->1022
                   LINES: 20->1|25->1|26->2|80->56|80->56|81->57

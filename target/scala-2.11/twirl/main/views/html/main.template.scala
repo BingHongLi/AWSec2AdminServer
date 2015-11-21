@@ -68,8 +68,8 @@ Seq[Any](format.raw/*1.32*/("""
 object main extends main_Scope0.main
               /*
                   -- GENERATED --
-                  DATE: Mon Nov 02 20:59:25 CST 2015
-                  SOURCE: /home/cirrusdi/testPlay/app/views/main.scala.html
+                  DATE: Sat Nov 21 09:59:35 CST 2015
+                  SOURCE: /home/cirrusdi/AwsEc2AdminServer/app/views/main.scala.html
                   HASH: 12ece10381b647ce6d74469c8cca84b33351bb7e
                   MATRIX: 530->1|655->31|683->33|751->75|776->80|834->111|862->112|898->121|947->143|975->144|1007->149|1235->350|1261->355|1375->442|1403->449|1435->454
                   LINES: 20->1|25->1|27->3|30->6|30->6|33->9|33->9|34->10|35->11|35->11|36->12|42->18|42->18|47->23|47->23|48->24

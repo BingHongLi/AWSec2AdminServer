@@ -71,6 +71,10 @@ class Application extends Controller {
     }
   }
 
+
+
+//  aws instance send a request to admin server, the server will get the instance's volumeId,
+//  and make a snapshot for volume, instance need to set snapshot's describe and tag
   def backupInstanceEBS(describe:String,snapshotTag:String)= Action{
     request => {
       val clientIp:String = request.remoteAddress
@@ -80,10 +84,12 @@ class Application extends Controller {
 //        override def getAWSSecretKey: String = ""
 //      }
 
+//    使用IAM Role 方式驗證,需把setEndPoint,改成以設定檔方式讀入改變
       val cred = new com.amazonaws.auth.InstanceProfileCredentialsProvider
       val ec2ClientTest = new AmazonEC2Client(cred)
       ec2ClientTest.setEndpoint("ec2.ap-northeast-1.amazonaws.com")
 
+//    取得instance 的 private ip, 並以此ip調閱基本資訊取得 instancec 完整資訊,並從此資訊中取出volumeId
       val describeInstanceFilterList = new DescribeInstancesRequest
       val instanceIpFilter = new com.amazonaws.services.ec2.model.Filter()
       instanceIpFilter.withName("private-ip-address").withValues(clientIp)
@@ -91,10 +97,14 @@ class Application extends Controller {
       val instanceInfo = ec2ClientTest.describeInstances(describeInstanceFilterList)
       val volumeInfo = instanceInfo.getReservations.get(0).getInstances.get(0).getBlockDeviceMappings
       //    println(volumeInfo.get(1).getEbs.getVolumeId)
+
+//    將volumeId轉存成迭代器,並對裡面的volume已經建立的snapshot存在日期進行診斷
       val volumeInfoIterator = volumeInfo.iterator()
       while(volumeInfoIterator.hasNext){
+//      取出volume資訊
         val eachVolume = volumeInfoIterator.next()
         val eachVolumeId=eachVolume.getEbs.getVolumeId
+
         //  調出指定的volumeID的快照
         val volumeIDFilter = new com.amazonaws.services.ec2.model.Filter()
         volumeIDFilter.withName("volume-id").withValues(eachVolumeId)
@@ -115,9 +125,8 @@ class Application extends Controller {
           }
           //      println( nowTimeMillsSeconds - snapShotIterator.next().getStartTime.getTime)
         }
-        //  創建新快照
+        //  創建新快照,並且為快照設定標籤
         val snapShotRequestInfo = new CreateSnapshotRequest(eachVolumeId,describe)
-
         val ttd = ec2ClientTest.createSnapshot(snapShotRequestInfo)
         val tagTest = new CreateTagsRequest().withResources(ttd.getSnapshot.getSnapshotId()).withTags(new Tag("Name",snapshotTag))
         ec2ClientTest.createTags(tagTest)
