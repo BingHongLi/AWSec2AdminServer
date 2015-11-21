@@ -24,8 +24,15 @@ POST    /queryEC2Info               controllers.Query.postReturnEC2Info()
 
 
 # AWS EC2 EBS 備份
-GET     /backupEBS&describe=$describe<(\w+)>&snapshotTag=$snapshotTag<(\w+)>          controllers.Application.backupInstanceEBS(describe:String,snapshotTag:String)
+# 不適當的寫法,予以紀錄,只是有這用法,其應用在正規表示去除字串
+#GET     /backupEBS&describe=$describe<(\w+)>&snapshotTag=$snapshotTag<(\w+)>          controllers.Application.backupInstanceEBS(describe:String,snapshotTag:String)
+# Query string method, we can get the webPage  <website site>/backupEBS?regionEndPoint:String=ec2.ap-northeast-1.amazonaws.com&describe=demo&snapshotTag=demo
+GET     /backupEBS        controllers.Application.backupInstanceEBS(regionEndpoint:String ?="ec2.ap-northeast-1.amazonaws.com" ,describe:String,snapshotTag:String)
 
 # 動態切割Query String, Dyamic part
 # https://www.playframework.com/documentation/2.4.x/ScalaRouting
 GET     /tdd&id=$id<(\w+)>&value=$value<(\w+)>            controllers.Test.test(id:String,value:String)
+
+# Parameters with default values
+#GET     /clients        controllers.Test.test2(page:String)
+GET     /clients        controllers.Test.test(id:String ?= "cdda" ,value:String)

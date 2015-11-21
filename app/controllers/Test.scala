@@ -12,4 +12,8 @@ class Test extends Controller{
      Ok(id+"  "+value)
    }
 
+   def test2(page:String)= Action{
+     Ok(page)
+   }
+
  }

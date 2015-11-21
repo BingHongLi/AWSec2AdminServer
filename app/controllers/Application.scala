@@ -75,7 +75,7 @@ class Application extends Controller {
 
 //  aws instance send a request to admin server, the server will get the instance's volumeId,
 //  and make a snapshot for volume, instance need to set snapshot's describe and tag
-  def backupInstanceEBS(describe:String,snapshotTag:String)= Action{
+  def backupInstanceEBS(regionEndpoint:String,describe:String,snapshotTag:String)= Action{
     request => {
       val clientIp:String = request.remoteAddress
 //      val cred = new AWSCredentials {
@@ -87,7 +87,7 @@ class Application extends Controller {
 //    使用IAM Role 方式驗證,需把setEndPoint,改成以設定檔方式讀入改變
       val cred = new com.amazonaws.auth.InstanceProfileCredentialsProvider
       val ec2ClientTest = new AmazonEC2Client(cred)
-      ec2ClientTest.setEndpoint("ec2.ap-northeast-1.amazonaws.com")
+      ec2ClientTest.setEndpoint(regionEndpoint)
 
 //    取得instance 的 private ip, 並以此ip調閱基本資訊取得 instancec 完整資訊,並從此資訊中取出volumeId
       val describeInstanceFilterList = new DescribeInstancesRequest

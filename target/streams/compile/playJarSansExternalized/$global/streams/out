@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mPackaging /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/awsec2adminserver_2.11-1.0.2-sans-externalized.jar ...[0m
+[0m[[0minfo[0m] [0mPackaging /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/awsec2adminserver_2.11-1.0.3-sans-externalized.jar ...[0m
 [0m[[0mdebug[0m] [0mInput file mappings:[0m
 [0m[[0mdebug[0m] [0m	views/html/index.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/views/html/index.class[0m
@@ -6,6 +6,8 @@
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.class[0m
 [0m[[0mdebug[0m] [0m	router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$2.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$2.class[0m
+[0m[[0mdebug[0m] [0m	router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$7.class[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$7.class[0m
 [0m[[0mdebug[0m] [0m	views/html/queryEC2Info$.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/views/html/queryEC2Info$.class[0m
 [0m[[0mdebug[0m] [0m	controllers[0m
@@ -14,6 +16,8 @@
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/router/Routes.class[0m
 [0m[[0mdebug[0m] [0m	views/html[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/views/html[0m
+[0m[[0mdebug[0m] [0m	controllers/Test$$anonfun$test2$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/controllers/Test$$anonfun$test2$1.class[0m
 [0m[[0mdebug[0m] [0m	views/html/index_Scope0$index$$anonfun$f$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/views/html/index_Scope0$index$$anonfun$f$1.class[0m
 [0m[[0mdebug[0m] [0m	controllers/javascript/ReverseApplication.class[0m
@@ -38,6 +42,10 @@
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/controllers/Application$$anonfun$getIp$1.class[0m
 [0m[[0mdebug[0m] [0m	controllers/javascript/ReverseQuery.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/controllers/javascript/ReverseQuery.class[0m
+[0m[[0mdebug[0m] [0m	router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$7$$anonfun$apply$7.class[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$7$$anonfun$apply$7.class[0m
+[0m[[0mdebug[0m] [0m	router/Routes$$anonfun$router$Routes$$controllers_Test_test6_invoker$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/router/Routes$$anonfun$router$Routes$$controllers_Test_test6_invoker$1.class[0m
 [0m[[0mdebug[0m] [0m	router/RoutesPrefix.class[0m
 [0m[[0mdebug[0m] [0m	  /home/cirrusdi/AwsEc2AdminServer/target/scala-2.11/classes/router/RoutesPrefix.class[0m
 [0m[[0mdebug[0m] [0m	router/Routes$$anonfun$router$Routes$$controllers_Test_test5_invoker$1.class[0m

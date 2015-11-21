@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cirrusdi/AwsEc2AdminServer/conf/routes
-// @DATE:Sat Nov 21 09:59:33 CST 2015
+// @DATE:Sat Nov 21 17:30:16 CST 2015
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -14,7 +14,7 @@ import _root_.controllers.Assets.Asset
 package controllers.javascript {
   import ReverseRouteContext.empty
 
-  // @LINE:31
+  // @LINE:34
   class ReverseTest(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -22,12 +22,16 @@ package controllers.javascript {
     }
 
   
-    // @LINE:31
+    // @LINE:34
     def test: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Test.test",
       """
         function(id,value) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "tdd&id=" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", id) + "&value=" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("value", value)})
+        
+          if (true) {
+            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "tdd&id=" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", id) + "&value=" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("value", value)})
+          }
+        
         }
       """
     )
@@ -72,6 +76,16 @@ package controllers.javascript {
     }
 
   
+    // @LINE:30
+    def backupInstanceEBS: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.backupInstanceEBS",
+      """
+        function(regionEndpoint,describe,snapshotTag) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "backupEBS" + _qS([(regionEndpoint == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("regionEndpoint", regionEndpoint)), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("describe", describe), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("snapshotTag", snapshotTag)])})
+        }
+      """
+    )
+  
     // @LINE:15
     def restartInstance: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.restartInstance",
@@ -88,16 +102,6 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getIp"})
-        }
-      """
-    )
-  
-    // @LINE:27
-    def backupInstanceEBS: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.backupInstanceEBS",
-      """
-        function(describe,snapshotTag) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "backupEBS&describe=" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("describe", describe) + "&snapshotTag=" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("snapshotTag", snapshotTag)})
         }
       """
     )
